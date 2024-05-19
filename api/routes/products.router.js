@@ -19,7 +19,8 @@ router.get('/filter', async (req, res) => {
   res.send('yo so un filtro');
 });
 
-router.get('/:id',
+router.get(
+  '/:id',
   validatorHandler(getProductSchema, 'params'),
   async (req, res, next) => {
     try {
@@ -32,7 +33,8 @@ router.get('/:id',
   },
 );
 
-router.post('/',
+router.post(
+  '/',
   validatorHandler(createProductSchema, 'body'),
   async (req, res) => {
     const body = req.body;
@@ -41,19 +43,21 @@ router.post('/',
   },
 );
 
-router.patch('/:id', 
-validatorHandler(getProductSchema, "params"),
-validatorHandler(updateProductSchema, "body"),
-async (req, res, next) => {
-  try {
-    const { id } = req.params;
-    const body = req.body;
-    const product = await service.update(id, body);
-    res.json(product);
-  } catch (error) {
-    next(error);
-  }
-});
+router.patch(
+  '/:id',
+  validatorHandler(getProductSchema, 'params'),
+  validatorHandler(updateProductSchema, 'body'),
+  async (req, res, next) => {
+    try {
+      const { id } = req.params;
+      const body = req.body;
+      const product = await service.update(id, body);
+      res.json(product);
+    } catch (error) {
+      next(error);
+    }
+  },
+);
 
 router.delete('/:id', async (req, res) => {
   const { id } = req.params;
