@@ -16,7 +16,7 @@ app.use(express.json());
 const whiteList = [
   'http://localhost:3000',
   'http://localhost:8080',
-  'algo.com',
+  "https://class-express-dmf01o5us-ellaggons-projects.vercel.app",
   'http://127.0.0.1:5500',
 ];
 const options = {
