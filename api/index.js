@@ -1,6 +1,6 @@
 const express = require('express');
-const routerApi = require('./routes');
 const cors = require('cors');
+const routerApi = require('./routes');
 
 const {
   logErrors,
@@ -32,10 +32,6 @@ app.use(cors(options));
 
 app.get('/api', (req, res) => {
   res.send('Hello World!');
-});
-
-app.get('/api/nueva-ruta', (req, res) => {
-  res.send('Hello its a new route??');
 });
 
 // Los errores los debemos poner despues del routing
